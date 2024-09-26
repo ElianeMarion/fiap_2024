@@ -35,7 +35,7 @@ public class ProdutoDao {
         }
     }
 
-    //Buscar por id => SELECT * FROM TBL_ENDERECO WHERE IDENDERECO = ?
+    //Buscar por id => SELECT * FROM TBL_PRODUTO WHERE ID_PRODUTO = ?
     public Produto buscarPorId(int id){
         Produto produto = new Produto();
         PreparedStatement comandoSql = null;
