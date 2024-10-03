@@ -13,4 +13,9 @@ public class ProdutoService {
         return produtoDao.listar();
     }
 
+    //Retornar um único produto -> buscarPorId
+    public Produto buscarPorId(int codigo){
+        return produtoDao.buscarPorId(codigo);
+    }
+
 }
