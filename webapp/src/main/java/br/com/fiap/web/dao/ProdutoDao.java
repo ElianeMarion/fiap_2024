@@ -16,7 +16,7 @@ public class ProdutoDao {
     public ProdutoDao() {
         this.conexao = ConnectionFactory.obterConexao();
     }
-    public void inserir(Produto produto){
+    public Produto inserir(Produto produto){
         PreparedStatement comandoSql = null;
         try{
             String sql = "insert into tbl_produto(codigo, nome, preco, quantidade)" +
@@ -26,6 +26,43 @@ public class ProdutoDao {
             comandoSql.setString(2, produto.getNome());
             comandoSql.setDouble(3, produto.getPreco());
             comandoSql.setInt(4, produto.getQuantidade());
+
+            comandoSql.executeUpdate();
+            //conexao.close();
+            comandoSql.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return produto;
+    }
+
+    public void alterar(Produto produto){
+        PreparedStatement comandoSql = null;
+        try{
+            String sql = "update tbl_produto set nome = ?, preco=?, quantidade=?" +
+                    " where codigo=?";
+            comandoSql = conexao.prepareStatement(sql);
+            comandoSql.setString(1, produto.getNome());
+            comandoSql.setDouble(2, produto.getPreco());
+            comandoSql.setInt(3, produto.getQuantidade());
+            comandoSql.setInt(4, produto.getCodigo());
+
+            comandoSql.executeUpdate();
+//            //int id = comandoSql.executeUpdate();
+//            //var newProduto = buscarPorId(id);
+            //conexao.close();
+            comandoSql.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void excluir(int id){
+        PreparedStatement comandoSql = null;
+        try{
+            String sql = "delete from tbl_produto where codigo = ?";
+            comandoSql = conexao.prepareStatement(sql);
+            comandoSql.setInt(1, id);
 
             comandoSql.executeUpdate();
             //conexao.close();
@@ -80,4 +117,6 @@ public class ProdutoDao {
         }
         return produtos;
     }
+
+
 }
