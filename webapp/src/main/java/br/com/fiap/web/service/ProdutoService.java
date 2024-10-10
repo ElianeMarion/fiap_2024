@@ -16,11 +16,10 @@ public class ProdutoService {
         return produtos.stream()
                 .map(produto -> {
                     ProdutoRequestDto produtoDto = new ProdutoRequestDto();
-                    produtoDto.convertToDto(produto);
-//                    produtoDto.setCodigo(produto.getCodigo());
-//                    produtoDto.setNome(produto.getNome());
-//                    produtoDto.setPreco(produto.getPreco());
-//                    produtoDto.setQuantidade(produto.getQuantidade());
+                    produtoDto.setCodigo(produto.getCodigo());
+                    produtoDto.setNome(produto.getNome());
+                    produtoDto.setPreco(produto.getPreco());
+                    produtoDto.setQuantidade(produto.getQuantidade());
                     return produtoDto;
                 })
                 .collect(Collectors.toList());
