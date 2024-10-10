@@ -16,7 +16,7 @@ public class ProdutoDao {
     public ProdutoDao() {
         this.conexao = ConnectionFactory.obterConexao();
     }
-    public Produto inserir(Produto produto){
+    public void inserir(Produto produto){
         PreparedStatement comandoSql = null;
         try{
             String sql = "insert into tbl_produto(codigo, nome, preco, quantidade)" +
@@ -33,7 +33,6 @@ public class ProdutoDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return produto;
     }
 
     public void alterar(Produto produto){
