@@ -33,3 +33,7 @@ l
 <src/main/java/br/com/fiap/web/senhas/PasswordHashPBKDF2.java,6\c\6c78a026046a41480bb9b56279f024f55099ab36
 d
 4src/main/java/br/com/fiap/web/senhas/TestePBKDF.java,1\0\10128c2e8cad3dda21b64af777bb330147437bd1
+`
+0src/main/java/br/com/fiap/web/model/Usuario.java,3\1\31c294c8d6e2581af5b58b760d463287843f5b6b
+a
+1src/main/java/br/com/fiap/web/dao/UsuarioDao.java,a\a\aa25af172d10e1f89d06b33b3b1febefadabb886
